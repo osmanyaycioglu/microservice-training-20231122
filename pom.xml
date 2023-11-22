@@ -17,6 +17,7 @@
   <modules>
     <module>node-configuration</module>
     <module>node-discovery</module>
+    <module>ms-agreement</module>
   </modules>
 
 </project>
