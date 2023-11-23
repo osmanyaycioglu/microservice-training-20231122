@@ -9,14 +9,18 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-@Constraint(validatedBy = {BadWordsImpl.class })
+@Target({ElementType.FIELD,
+         ElementType.TYPE
+})
+@Constraint(validatedBy = {BadWordsImpl.class,
+                           BadWordsGeneralImpl.class
+})
 public @interface BadWords {
     String[] value();
 
     String message() default "{jakarta.validation.constraints.BadWords.message}";
 
-    Class<?>[] groups() default { };
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default { };
+    Class<? extends Payload>[] payload() default {};
 }

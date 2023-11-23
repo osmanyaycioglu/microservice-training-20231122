@@ -11,11 +11,11 @@ import lombok.Setter;
 import java.util.List;
 
 @Data
+@BadWords(value = {"abc","123","qwe"})
 public class ContactDto {
     @NotEmpty(message = "firstName boş olamaz")
     @NotBlank
     @Size(min = 2,max = 15)
-    @BadWords(value = {"abc","123","qwe"})
     private String firstName;
     @NotEmpty
     @NotBlank
