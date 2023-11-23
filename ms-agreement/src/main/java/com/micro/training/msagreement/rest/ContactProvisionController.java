@@ -1,7 +1,7 @@
 package com.micro.training.msagreement.rest;
 
-import com.micro.training.msagreement.rest.error.ErrorObj;
 import com.micro.training.msagreement.rest.models.ContactDto;
+import com.micro.training.mscommon.error.ErrorObj;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

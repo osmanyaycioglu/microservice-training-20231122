@@ -1,4 +1,4 @@
-package com.micro.training.msagreement.rest.error;
+package com.micro.training.mscommon.error;
 
 import lombok.Builder;
 import lombok.Getter;
