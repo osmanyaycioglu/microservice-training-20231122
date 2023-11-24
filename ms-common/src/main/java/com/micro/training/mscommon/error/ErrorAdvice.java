@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -14,10 +15,24 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ErrorAdvice {
     private static final Logger logger = LoggerFactory.getLogger(ErrorAdvice.class);
-
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorObj handleError(IllegalArgumentException exp) {
+        if (logger.isDebugEnabled()){
+            logger.debug("Exp : " + exp.getMessage());
+        }
+
+        logger.error("[ErrorAdvice][handleError]-> *Error* : " + exp.getMessage(),
+                     exp);
+        return ErrorObj.builder()
+                       .withErrorMessage(exp.getMessage())
+                       .withErrorCode(1045)
+                       .build();
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ErrorObj handleError(AccessDeniedException exp) {
         if (logger.isDebugEnabled()){
             logger.debug("Exp : " + exp.getMessage());
         }

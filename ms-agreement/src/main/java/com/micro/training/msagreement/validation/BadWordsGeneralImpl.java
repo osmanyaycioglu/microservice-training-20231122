@@ -28,9 +28,11 @@ public class BadWordsGeneralImpl implements ConstraintValidator<BadWords, Object
                     declaredFieldLoc.setAccessible(true);
                     String   oLoc      = (String) declaredFieldLoc.get(value);
                     String[] valuesLoc = badWords.value();
-                    for (String valueLoc : valuesLoc) {
-                        if (oLoc.contains(valueLoc)) {
-                            errors.add(declaredFieldLoc.getName() + " contains bad word : " + valueLoc);
+                    if (oLoc != null) {
+                        for (String valueLoc : valuesLoc) {
+                            if (oLoc.contains(valueLoc)) {
+                                errors.add(declaredFieldLoc.getName() + " contains bad word : " + valueLoc);
+                            }
                         }
                     }
                 } catch (Exception eParam) {

@@ -1,6 +1,7 @@
 package com.micro.training.msagreement.rest;
 
 import com.micro.training.msagreement.rest.models.Person;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +11,16 @@ import org.springframework.web.bind.annotation.*;
 public class PlaygroundController {
 
     // @RequestMapping(method = RequestMethod.GET,path = "/test1")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/test1")
     public String test1() {
         return "Test 1 OK";
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/test2")
+    public String test2() {
+        return "Test 2 OK";
     }
 
     // /play/test2/osman/static/ali
