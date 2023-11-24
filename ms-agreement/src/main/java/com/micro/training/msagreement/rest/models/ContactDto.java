@@ -11,20 +11,27 @@ import lombok.Setter;
 import java.util.List;
 
 @Data
-@BadWords(value = {"abc","123","qwe"})
+@BadWords(value = {"abc",
+                   "123",
+                   "qwe"
+})
 public class ContactDto {
     @NotEmpty(message = "firstName boş olamaz")
     @NotBlank
-    @Size(min = 2,max = 15)
-    private String firstName;
+    @Size(min = 2, max = 15)
+    private String         firstName;
     @NotEmpty
     @NotBlank
-    @Size(min = 3,max = 20)
-    private String lastName;
+    @Size(min = 3, max = 20)
+    private String         lastName;
+    @NotEmpty
+    @NotBlank
+    @Size(min = 6,max = 20)
+    private String         username;
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
-    private String password;
+    private String         password;
     @Email
-    private String email;
+    private String         email;
     @Size(min = 1)
     @Valid
     private List<PhoneDto> phoneNumbers;
