@@ -18,6 +18,8 @@
     <module>node-configuration</module>
     <module>node-discovery</module>
     <module>ms-agreement</module>
+    <module>ms-common</module>
+
   </modules>
 
 </project>

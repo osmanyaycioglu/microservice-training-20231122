@@ -21,8 +21,7 @@ public class ContactProvisionController {
 
     @PostMapping("/add")
     public String add(@Valid @RequestBody ContactDto contactDtoParam) {
-        contactProvisionService.addContact(IContactMapping.instance.toContact(contactDtoParam));
-        return "OK";
+        return contactProvisionService.addContact(IContactMapping.instance.toContact(contactDtoParam));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
