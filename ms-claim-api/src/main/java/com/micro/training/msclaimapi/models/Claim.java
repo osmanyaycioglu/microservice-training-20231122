@@ -1,4 +1,4 @@
-package com.micro.training.msagreement.integration.models;
+package com.micro.training.msclaimapi.models;
 
 
 import lombok.AllArgsConstructor;
@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Claim {
     private String        fileNo;
     private BigDecimal    amount;

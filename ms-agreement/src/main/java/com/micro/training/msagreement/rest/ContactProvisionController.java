@@ -24,6 +24,11 @@ public class ContactProvisionController {
         return contactProvisionService.addContact(IContactMapping.instance.toContact(contactDtoParam));
     }
 
+    @PostMapping("/add2")
+    public String add2(@Valid @RequestBody ContactDto contactDtoParam) {
+        return contactProvisionService.addContact2(IContactMapping.instance.toContact(contactDtoParam));
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorObj handleError(IllegalArgumentException exp) {

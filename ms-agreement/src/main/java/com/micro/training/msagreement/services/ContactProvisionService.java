@@ -1,13 +1,11 @@
 package com.micro.training.msagreement.services;
 
 import com.micro.training.msagreement.data.ContactDataManager;
-import com.micro.training.msagreement.data.dao.IContactDao;
 import com.micro.training.msagreement.integration.ClaimIntegration;
-import com.micro.training.msagreement.integration.models.Claim;
-import com.micro.training.msagreement.integration.models.ClaimCreateResponse;
 import com.micro.training.msagreement.services.models.Contact;
+import com.micro.training.msclaimapi.models.Claim;
+import com.micro.training.msclaimapi.models.ClaimCreateResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,4 +30,12 @@ public class ContactProvisionService {
         return contactDataManager.insertContact(contactParam).getContactUuid();
     }
 
+    public String addContact2(final Contact contactParam) {
+        ClaimCreateResponse claimLoc = claimIntegration.createClaimFeign(new Claim("abc-1",
+                                                                              BigDecimal.TEN,
+                                                                              LocalDateTime.now()));
+        System.out.println(claimLoc);
+        return contactDataManager.insertContact(contactParam).getContactUuid();
+
+    }
 }

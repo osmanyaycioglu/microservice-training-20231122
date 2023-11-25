@@ -1,4 +1,4 @@
-package com.micro.training.msagreement.integration.models;
+package com.micro.training.msclaimapi.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

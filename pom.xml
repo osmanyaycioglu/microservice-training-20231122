@@ -19,7 +19,8 @@
     <module>node-discovery</module>
     <module>ms-agreement</module>
     <module>ms-common</module>
-
+    <module>ms-claim</module>
+    <module>ms-claim-api</module>
   </modules>
 
 </project>
